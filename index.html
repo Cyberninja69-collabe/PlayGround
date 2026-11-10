@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101d28" />
+  <link rel="icon" href="data:," />
+  <title>Emberwind — The Skybound Isles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="world" aria-label="3D dragon riding adventure"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Emberwind home"><span class="brand-mark">✦</span><span>EMBERWIND</span><i>THE SKYBOUND ISLES</i></a>
+      <div class="region"><span class="region-dot"></span><span id="region-name">SUNMEADOW REACH</span><span class="region-sep">/</span><span id="weather">CLEAR SKIES</span></div>
+      <button class="icon-button" id="sound-toggle" aria-label="Toggle sound"><span id="sound-icon">♫</span></button>
+    </header>
+
+    <section class="left-rail">
+      <div class="quest-card glass">
+        <div class="section-label"><span class="spark">✦</span> YOUR JOURNEY <span class="quest-count">01 / 03</span></div>
+        <h1>Wings over<br><em>Sunmeadow</em></h1>
+        <p class="quest-copy">The old beacon has gone dark. Find its three lost emberstones and bring the valley back to life.</p>
+        <div class="quest-progress"><div class="progress-line"><span id="quest-progress-fill"></span></div><b id="quest-progress-text">0 <small>OF 3 EMBERSTONES</small></b></div>
+        <div class="objective" id="objective"><span class="objective-icon">◇</span><span>Find the first emberstone</span><span class="objective-distance" id="objective-distance">—</span></div>
+      </div>
+      <div class="dragon-card glass">
+        <div class="dragon-avatar"><span>🐉</span><i></i></div>
+        <div class="dragon-info"><span class="section-label">YOUR COMPANION</span><strong>Sol <span>·</span> Sunscale</strong><small>Level 04 <b>✦</b> Bonded</small></div>
+        <button id="dragon-call" class="call-button" title="Call your dragon">↗</button>
+      </div>
+    </section>
+
+    <aside class="right-rail">
+      <div class="map-card glass">
+        <div class="map-heading"><span>VALLEY MAP</span><button id="map-toggle">↗</button></div>
+        <canvas id="minimap" width="220" height="166"></canvas>
+        <div class="map-footer"><span><i class="map-dot you"></i> YOU</span><span><i class="map-dot quest-dot"></i> QUEST</span></div>
+      </div>
+      <div class="flight-card glass">
+        <div class="flight-heading"><span>FLIGHT STATUS</span><span id="flight-state" class="state-pill">CRUISING</span></div>
+        <div class="meter-label"><span>STAMINA</span><b id="stamina-value">100%</b></div><div class="meter"><i id="stamina-bar"></i></div>
+        <div class="meter-label health-label"><span>DRAGON HEALTH</span><b id="health-value">100%</b></div><div class="meter health-meter"><i id="health-bar"></i></div>
+        <div class="speed-row"><span>AIRSPEED</span><strong id="speed-value">42 <small>km/h</small></strong></div>
+      </div>
+    </aside>
+
+    <div class="bottom-left"><span class="compass">N</span><span id="altitude">ALT <b>120</b> m</span><span class="divider"></span><span id="coordinates">X 0 · Z 0</span></div>
+    <div class="toast" id="toast"><span>✦</span><b id="toast-text">The valley is yours to explore</b></div>
+    <div class="combat-flash" id="combat-flash">✦</div>
+    <div class="bottom-center"><button class="action-button" id="fire-button"><span>✧</span><b>EMBER BLAST</b><kbd>F</kbd></button><button class="action-button call-action" id="roar-button"><span>⌁</span><b>DRAGON ROAR</b><kbd>R</kbd></button></div>
+    <div class="controls-hint"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> FLY</span><span><kbd>SPACE</kbd> RISE</span><span><kbd>SHIFT</kbd> BOOST</span><span><kbd>F</kbd> FIRE</span></div>
+    <div class="center-marker">＋</div>
+    <div class="start-overlay" id="start-overlay"><div class="start-panel"><div class="start-emblem">✦</div><div class="eyebrow">A WILDSKY ADVENTURE</div><h2>Find your<br><em>own horizon.</em></h2><p>Ride with Sol across a living valley of quiet villages, hidden treasures, and skies worth getting lost in.</p><button id="begin-button">TAKE FLIGHT <span>→</span></button><small>BEST EXPERIENCED WITH SOUND</small></div></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
