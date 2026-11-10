@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#101a20">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='.9em' font-size='56'%3E%E2%9C%A6%3C/text%3E%3C/svg%3E">
+  <title>Emberwake — The Last Skywarden</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
+  <script type="module" src="game.js"></script>
+</head>
+<body>
+  <main id="game" aria-label="Emberwake dragon riding game">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Emberwake home"><span class="brand-mark">✦</span><span>EMBERWAKE<small>THE LAST SKYWAR DEN</small></span></a>
+      <div class="top-actions"><div class="weather"><span class="weather-dot"></span> HIGH SUMMER <i>·</i> 14:32</div><button id="mapToggle" class="icon-btn" aria-label="Toggle map">⌖</button><button id="soundToggle" class="icon-btn" aria-label="Toggle sound">♫</button><button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button></div>
+    </header>
+    <section class="mission-panel hud-panel"><div class="eyebrow"><span class="live-dot"></span> SKYWARDEN'S CALL <span class="quest-count" id="questCount">0 / 3</span></div><h1 id="missionTitle">The Ember Relics</h1><p id="missionText">Find the three ancient embers scattered across the valley.</p><div class="progress-track"><i id="questProgress"></i></div><div class="objective" id="objective"><span class="objective-icon">◇</span><span>Seek the first ember</span><span class="distance" id="distance">—</span></div></section>
+    <section class="status-panel hud-panel"><div class="status-head"><span>VITALS</span><span id="healthText">100%</span></div><div class="health-track"><i id="healthBar"></i></div><div class="status-meta"><span>✦ <b id="shardCount">0</b> EMBERS</span><span>LEVEL <b>01</b></span></div></section>
+    <div id="crosshair"><span></span></div>
+    <div id="interactHint" class="interact-hint">[ E ]  ATTUNE TO EMBER</div>
+    <div id="toast" class="toast"></div>
+    <section class="minimap hud-panel" id="miniPanel"><div class="map-label">THE WILDERLANDS <span>N ↑</span></div><canvas id="minimap" width="180" height="180"></canvas><div class="map-legend"><i class="legend-player"></i> YOU <i class="legend-goal"></i> EMBER</div></section>
+    <section class="controls-hint"><span>W A S D</span> FLY <i>·</i> <span>SPACE</span> CLIMB <i>·</i> <span>SHIFT</span> DASH <i>·</i> <span>Q</span> FIRE <i>·</i> <span>E</span> ATTUNE</section>
+    <div class="flight-meter"><span>ALTITUDE</span><div class="meter"><i id="altitudeBar"></i></div><b id="altitudeText">120 m</b></div>
+    <div class="speed-meter"><span>FLIGHT SPEED</span><b id="speedText">0</b><small>KM/H</small></div>
+    <div id="touchControls" aria-label="Touch flight controls"><div id="joystick" class="joystick"><div class="joy-ring"></div><div id="joyKnob" class="joy-knob"></div></div><div class="touch-actions"><button id="touchFire" class="touch-button fire-button">✹<small>FIRE</small></button><button id="touchClimb" class="touch-button climb-button">↑<small>CLIMB</small></button><button id="touchDash" class="touch-button dash-button">»<small>DASH</small></button></div></div>
+    <div id="startScreen" class="screen visible"><div class="title-block"><div class="title-kicker"><span></span> A WILDERNESS ADVENTURE <span></span></div><h2>EMBER<span>WAKE</span></h2><p class="subtitle">THE LAST SKYWAR DEN</p><div class="title-rule"><i></i> ✦ <i></i></div><p class="intro">The ancient fires are fading. Take to the skies, rider.<br>Three lost embers can wake the sleeping mountain.</p><button id="startBtn" class="primary-btn">TAKE FLIGHT <span>↗</span></button><div class="start-note">WASD TO FLY <i>·</i> Q TO BREATHE FIRE <i>·</i> E TO ATTUNE</div></div><div class="screen-footer">A hand-crafted skybound tale <span>✦</span> BEST EXPERIENCED FULLSCREEN</div></div>
+    <div id="pauseScreen" class="screen"><div class="modal-card"><div class="title-kicker">✦  TAKE A BREATH  ✦</div><h2>FLIGHT PAUSED</h2><p>The valley will wait for you.</p><button id="resumeBtn" class="primary-btn">RESUME FLIGHT <span>↗</span></button><div class="pause-keys">Press <b>ESC</b> to continue</div></div></div>
+    <div id="winScreen" class="screen"><div class="modal-card"><div class="title-kicker">✦  THE VALLEY REMEMBERS  ✦</div><h2>EMBER<span>WAKE</span></h2><p>You restored the fire. The sky is yours again.</p><div id="finalStats" class="final-stats">3 EMBERS RECOVERED</div><button id="replayBtn" class="primary-btn">FLY AGAIN <span>↗</span></button></div></div>
+    <div id="damageFlash"></div>
+  </main>
+</body>
+</html>
